@@ -1,7 +1,19 @@
-export default function App() {
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import SearchPage from './components/SearchPage.jsx';
+import PropertyPage from './components/PropertyPage.jsx';
+
+function App() {
     return (
-        <h1 className="text-3xl font-bold underline text-red-500">
-            Hello Tailwind!
-        </h1>
-    )
+        <DndProvider backend={HTML5Backend}>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<SearchPage />} />
+                    <Route path="/property/:id" element={<PropertyPage />} />
+                </Routes>
+            </BrowserRouter>
+        </DndProvider>
+    );
 }
+export default App;
