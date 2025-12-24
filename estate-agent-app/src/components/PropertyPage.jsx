@@ -14,7 +14,7 @@ const PropertyPage = () => {
     // Mock array for gallery since JSON only has 1 image
     // In reality, your JSON should have an array of images: "images": ["url1", "url2"...]
     // This generates 6 copies of the main image for the gallery requirement
-    const galleryImages = new Array(6).fill(property.picture);
+    const galleryImages = property.images || new Array(3).fill(property.picture);
 
     return (
         <div className="container mx-auto p-4 max-w-5xl">
@@ -85,11 +85,11 @@ const PropertyPage = () => {
                             <div className="h-64 bg-gray-200 rounded overflow-hidden relative">
                                 {/* Embed Google Map or Placeholder */}
                                 <div className="absolute inset-0 flex justify-center items-center text-gray-500">
-                                    <span className="flex items-center gap-2"><FaMapMarkerAlt /> Google Map Integration</span>
+                                    <span className="flex items-center gap-2"><FaMapMarkerAlt /></span>
                                 </div>
-                                {/* To actually embed, you'd use an iframe here:
+                                {
                          <iframe width="100%" height="100%" src={`https://maps.google.com/maps?q=${property.location}&output=embed`}></iframe>
-                         */}
+                         }
                             </div>
                         </TabPanel>
                     </Tabs>
