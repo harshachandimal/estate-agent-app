@@ -41,9 +41,6 @@ const SearchPage = () => {
 
     return (
         <div className="container mx-auto p-4 min-h-screen">
-            <header className="mb-8 border-b pb-4">
-                <h1 className="text-3xl font-bold text-blue-800">EstateAgent<span className="text-blue-500">App</span></h1>
-            </header>
 
             {/* Responsive Layout: Stacked on Mobile, 3-Col Grid on Desktop */}
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
