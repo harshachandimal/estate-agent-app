@@ -8,11 +8,10 @@ import PropertyPage from './components/PropertyPage';
 function App() {
     return (
         <DndProvider backend={HTML5Backend}>
-            <BrowserRouter>
-                {/* NavBar sits here so it shows on ALL pages */}
+            {/* Add the basename here! */}
+            <BrowserRouter basename="/estate-agent-app">
                 <NavBar />
-
-                <div className="pt-4"> {/* Add padding so content isn't hidden behind sticky nav */}
+                <div className="pt-4 min-h-screen bg-gray-100">
                     <Routes>
                         <Route path="/" element={<SearchPage />} />
                         <Route path="/property/:id" element={<PropertyPage />} />
