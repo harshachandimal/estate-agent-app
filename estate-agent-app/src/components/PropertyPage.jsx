@@ -95,10 +95,10 @@ const PropertyPage = () => {
                                         loading="lazy"
                                         allowFullScreen
                                         referrerPolicy="no-referrer-when-downgrade"
-                                        // This URL is the "Legacy" format. It works without a Key or Billing.
+                                        // NOTICE: It is now https:// (Secure)
                                         src={`https://maps.google.com/maps?q=${property.location}&output=embed`}>
                                     </iframe>
-                         }
+                                }
                             </div>
                         </TabPanel>
                     </Tabs>
