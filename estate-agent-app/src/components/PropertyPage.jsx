@@ -95,7 +95,7 @@ const PropertyPage = () => {
                                         loading="lazy"
                                         allowFullScreen
                                         referrerPolicy="no-referrer-when-downgrade"
-                                        src={`https://googleusercontent.com/maps_search_v2?q=${property.location}&hl=en`}>
+                                        src={`https://maps.google.com/maps?q=${property.location}&t=&z=13&ie=UTF8&iwloc=&output=embed`}>
                                     </iframe>
                                 }
                             </div>
