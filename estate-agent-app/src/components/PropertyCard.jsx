@@ -17,7 +17,7 @@ const PropertyCard = ({ property, onAddFav }) => {
             ref={drag}
             className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-200 ${isDragging ? 'opacity-50' : 'opacity-100'}`}
         >
-            <img src={property.picture} alt={property.type} className="w-full h-48 object-cover" />
+            <img src={`/estate-agent-app/${property.picture}`} alt={property.type} className="w-full h-48 object-cover" />
             <div className="p-4">
                 <h3 className="text-xl font-bold text-gray-800">£{property.price.toLocaleString()}</h3>
                 <p className="text-gray-600 font-medium">{property.type} - {property.bedrooms} Beds</p>

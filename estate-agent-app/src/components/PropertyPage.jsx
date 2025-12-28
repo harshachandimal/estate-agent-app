@@ -39,14 +39,14 @@ const PropertyPage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                         {/* Main Large Image */}
                         <div className="md:col-span-3">
-                            <img src={`/${property.picture}`} alt="Main" className="w-full h-96 object-cover rounded-lg shadow-sm" />
+                            <img src={`/estate-agent-app/${property.picture}`} alt="Main" className="w-full h-96 object-cover rounded-lg shadow-sm" />
                         </div>
                         {/* Thumbnails */}
                         <div className="md:col-span-1 grid grid-cols-2 md:grid-cols-1 gap-2 h-96 overflow-y-auto">
                             {galleryImages.map((img, index) => (
                                 <img
                                     key={index}
-                                    src={`/${img}`}
+                                    src={img.startsWith('/estate') ? img : `/estate-agent-app/${img}`}
                                     alt={`Thumbnail ${index}`}
                                     className="w-full h-24 object-cover rounded cursor-pointer hover:opacity-75 border-2 border-transparent hover:border-blue-500 transition"
                                 />
@@ -83,7 +83,7 @@ const PropertyPage = () => {
 
                         <TabPanel>
                             <div className="h-64 bg-gray-200 rounded overflow-hidden relative">
-                                {/* Embed Google Map or Placeholder */}
+                                                                                                                                                                                                                                      {/* Embed Google Map or Placeholder */}
                                 <div className="absolute inset-0 flex justify-center items-center text-gray-500">
                                     <span className="flex items-center gap-2"><FaMapMarkerAlt /></span>
                                 </div>
