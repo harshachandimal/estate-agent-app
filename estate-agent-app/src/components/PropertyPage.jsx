@@ -88,7 +88,15 @@ const PropertyPage = () => {
                                     <span className="flex items-center gap-2"><FaMapMarkerAlt /></span>
                                 </div>
                                 {
-                         <iframe width="100%" height="100%" src={`https://maps.google.com/maps?q=${property.location}&output=embed`}></iframe>
+                                    <iframe
+                                        width="100%"
+                                        height="400"
+                                        style={{ border: 0 }}
+                                        loading="lazy"
+                                        allowFullScreen
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                        src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyA5Elk0c_Lol0zaeFU4Ex11ctdkIt8PDn0&q=${property.location}`}>
+                                    </iframe>
                          }
                             </div>
                         </TabPanel>
