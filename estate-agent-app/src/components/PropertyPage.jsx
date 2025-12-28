@@ -95,7 +95,8 @@ const PropertyPage = () => {
                                         loading="lazy"
                                         allowFullScreen
                                         referrerPolicy="no-referrer-when-downgrade"
-                                        src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyA5Elk0c_Lol0zaeFU4Ex11ctdkIt8PDn0&q=${property.location}`}>
+                                        // This URL works without an API key or Billing
+                                        src={`https://maps.google.com/maps?q=${property.location}&output=embed`}>
                                     </iframe>
                          }
                             </div>
