@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { useDrag } from 'react-dnd';
 import { FaHeart } from 'react-icons/fa';
@@ -10,7 +10,9 @@ const PropertyCard = ({ property, onAddFav }) => {
         collect: (monitor) => ({
             isDragging: !!monitor.isDragging(),
         }),
+
     }));
+    const [isFavorite, setIsFavorite] = useState(false);
 
     return (
         <div
@@ -32,8 +34,15 @@ const PropertyCard = ({ property, onAddFav }) => {
                         View Details
                     </Link>
                     <button
-                        onClick={() => onAddFav(property.id)}
-                        className="text-white-500 hover:text-red-700 transition"
+                        onClick={(e) => {
+                            e.stopPropagation();       // Prevents clicking the card background if it's a link
+                            setIsClicked(!isClicked);  // Toggles the color (White <-> Red)
+                            onAddFav(property.id);     // Calls your existing function
+                        }}
+                        // Logic: If clicked, be Red. If not, be White.
+                        className={`transition-colors duration-300 ${
+                            isClicked ? 'text-red-600' : 'text-white hover:text-red-200'
+                        }`}
                         title="Add to Favourites"
                     >
                         <FaHeart size={20} />
