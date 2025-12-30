@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDrag } from 'react-dnd';
 
-const PropertyCard = ({ property, onAddFav }) => {
+const PropertyCard = ({ property, onAddFav, onRemoveFav  }) => {
     const [{ isDragging }, drag] = useDrag(() => ({
         type: 'PROPERTY',
         item: { id: property.id },
@@ -26,32 +26,29 @@ const PropertyCard = ({ property, onAddFav }) => {
         setIsFavorite(isListed);
     }, [property.id]); // Run this check whenever we load a new property
 
-// 3. HANDLE CLICK: Add or Remove from storage
     const toggleFavorite = () => {
-        // Get the current list again (it might have changed)
         let savedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
         if (isFavorite) {
-            // === REMOVE IT ===
-            // Filter keeps everything EXCEPT the one with this ID
+            // === REMOVE LOGIC ===
             const newFavorites = savedFavorites.filter((fav) => fav.id !== property.id);
-
-            // Save the new list back to the browser
             localStorage.setItem('favorites', JSON.stringify(newFavorites));
-
-            // Update the button color to White
             setIsFavorite(false);
 
+            // OPTIONAL: If you have an onRemoveFav prop, call it here
+             if (onRemoveFav) onRemoveFav(property.id);
+
         } else {
-            // === ADD IT ===
-            // Add this property to the array
+            // === ADD LOGIC ===
             savedFavorites.push(property);
-
-            // Save the new list back to the browser
             localStorage.setItem('favorites', JSON.stringify(savedFavorites));
-
-            // Update the button color to Red
             setIsFavorite(true);
+
+            // === NEW: Call onAddFav here ===
+            // This updates the parent component (e.g. Navbar counter) instantly
+            if (onAddFav) {
+                onAddFav(property);
+            }
         }
     };
 
@@ -102,4 +99,4 @@ const PropertyCard = ({ property, onAddFav }) => {
     );
 };
 
-export default PropertyCard;
+export default PropertyCard

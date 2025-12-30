@@ -70,7 +70,7 @@ const SearchPage = () => {
 
                 {/* Middle Column: Results */}
                 <div className="lg:col-span-2">
-                    <ResultsGrid filteredProps={filteredProps} onAddFav={addFavourite} />
+                    <ResultsGrid filteredProps={filteredProps} onAddFav={addFavourite} onRemoveFav={removeFavourite}/>
                 </div>
 
                 {/* Right Column: Favourites */}

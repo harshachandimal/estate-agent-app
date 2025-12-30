@@ -1,7 +1,7 @@
 import React from 'react';
 import PropertyCard from './PropertyCard.jsx';
 
-const ResultsGrid = ({ filteredProps, onAddFav }) => {
+const ResultsGrid = ({ filteredProps, onAddFav , onRemoveFav}) => {
   return (
     <>
       <div className="mb-4">
@@ -10,7 +10,7 @@ const ResultsGrid = ({ filteredProps, onAddFav }) => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {filteredProps.map((prop) => (
-          <PropertyCard key={prop.id} property={prop} onAddFav={onAddFav} />
+          <PropertyCard key={prop.id} property={prop} onAddFav={onAddFav} onRemoveFav={onRemoveFav} />
         ))}
         {filteredProps.length === 0 && (
           <p className="col-span-2 text-center text-gray-500 mt-10">No properties match your criteria.</p>
