@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDrag } from 'react-dnd';
-import { FaHeart } from 'react-icons/fa';
 
 const PropertyCard = ({ property, onAddFav }) => {
     const [{ isDragging }, drag] = useDrag(() => ({
