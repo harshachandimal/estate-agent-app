@@ -3,6 +3,8 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { FaSearch } from 'react-icons/fa';
 
+
+
 const SearchForm = ({
   type, setType,
   minPrice, setMinPrice,
@@ -56,12 +58,12 @@ const SearchForm = ({
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Added Between</label>
+
           <div className="space-y-2">
-            <DatePicker selected={dateAfter} onChange={setDateAfter} placeholderText="Start Date" className="w-full p-2 border rounded" />
+            <DatePicker selected={dateAfter} onChange={setDateAfter}   placeholderText="Start Date" className="w-full p-2 border rounded" />
             <DatePicker selected={dateBefore} onChange={setDateBefore} placeholderText="End Date" className="w-full p-2 border rounded" />
           </div>
         </div>
-
         <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded font-bold hover:bg-blue-700 transition">Search Properties</button>
       </form>
     </div>

@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar'; // Import the new component
 import SearchPage from './components/SearchPage';
 import PropertyPage from './components/PropertyPage';
+import Footer from "./components/Footer.jsx";
 
 function App() {
     return (
@@ -17,7 +18,9 @@ function App() {
                         <Route path="/property/:id" element={<PropertyPage />} />
                     </Routes>
                 </div>
+                <Footer />
             </BrowserRouter>
+
         </DndProvider>
     );
 }
