@@ -12,7 +12,8 @@ const PropertyCard = ({ property, onAddFav }) => {
         }),
 
     }));
-    const [isFavorite, setIsFavorite] = useState(false);
+    // This creates a switch: false = White, true = Red
+    const [isClicked, setIsClicked] = useState(false);
 
     return (
         <div
