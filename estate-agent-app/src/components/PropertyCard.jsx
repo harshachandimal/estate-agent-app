@@ -33,7 +33,7 @@ const PropertyCard = ({ property, onAddFav }) => {
                     </Link>
                     <button
                         onClick={() => onAddFav(property.id)}
-                        className="text-red-500 hover:text-red-700 transition"
+                        className="text-white-500 hover:text-red-700 transition"
                         title="Add to Favourites"
                     >
                         <FaHeart size={20} />
