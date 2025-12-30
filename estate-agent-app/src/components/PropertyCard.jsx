@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDrag } from 'react-dnd';
 import { FaHeart } from 'react-icons/fa';
@@ -10,9 +10,9 @@ const PropertyCard = ({ property, onAddFav }) => {
         collect: (monitor) => ({
             isDragging: !!monitor.isDragging(),
         }),
-
     }));
-    // This creates a switch: false = White, true = Red
+
+    // Local state to toggle color
     const [isClicked, setIsClicked] = useState(false);
 
     return (
@@ -21,7 +21,8 @@ const PropertyCard = ({ property, onAddFav }) => {
             className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-200 ${isDragging ? 'opacity-50' : 'opacity-100'}`}
         >
             <img src={`/estate-agent-app/${property.picture}`} alt={property.type} className="w-full h-48 object-cover" />
-            <div className="p-4">
+
+            <div className="p-4 relative"> {/* Added 'relative' for better positioning if needed */}
                 <h3 className="text-xl font-bold text-gray-800">£{property.price.toLocaleString()}</h3>
                 <p className="text-gray-600 font-medium">{property.type} - {property.bedrooms} Beds</p>
                 <p className="text-gray-500 text-sm truncate">{property.location}</p>
@@ -34,19 +35,21 @@ const PropertyCard = ({ property, onAddFav }) => {
                     >
                         View Details
                     </Link>
+
+                    {/* FAVOURITE BUTTON */}
                     <button
                         onClick={(e) => {
-                            e.stopPropagation();       // Prevents clicking the card background if it's a link
-                            setIsClicked(!isClicked);  // Toggles the color (White <-> Red)
-                            onAddFav(property.id);     // Calls your existing function
+                            e.stopPropagation();
+                            setIsClicked(!isClicked);
+                            onAddFav(property.id);
                         }}
-                        // Logic: If clicked, be Red. If not, be White.
-                        className={`transition-colors duration-300 ${
-                            isClicked ? 'text-red-600' : 'text-white hover:text-red-200'
+                        // FIX: Default color is gray-300 so it is visible on white background
+                        className={`transition-colors duration-300 p-2 rounded-full hover:bg-gray-100 ${
+                            isClicked ? 'text-red-600' : 'text-gray-300 hover:text-red-200'
                         }`}
                         title="Add to Favourites"
                     >
-                        <FaHeart size={20} />
+                        <FaHeart size={24} />
                     </button>
                 </div>
             </div>
