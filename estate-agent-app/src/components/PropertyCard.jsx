@@ -47,7 +47,7 @@ const PropertyCard = ({ property, onAddFav, onRemoveFav  }) => {
             // === NEW: Call onAddFav here ===
             // This updates the parent component (e.g. Navbar counter) instantly
             if (onAddFav) {
-                onAddFav(property);
+                onAddFav(property.id);
             }
         }
     };

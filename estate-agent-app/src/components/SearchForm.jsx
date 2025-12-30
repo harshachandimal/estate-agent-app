@@ -3,8 +3,6 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { FaSearch } from 'react-icons/fa';
 
-
-
 const SearchForm = ({
   type, setType,
   minPrice, setMinPrice,
