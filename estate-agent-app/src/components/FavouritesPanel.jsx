@@ -3,6 +3,7 @@ import { useDrop } from 'react-dnd';
 import { FaTrash } from 'react-icons/fa';
 import DraggableFavItem from './DraggableFavItem.jsx';
 
+
 const FavouritesPanel = ({ favourites, removeFav, clearFavs, onDropProp }) => {
     const [{ isOver }, drop] = useDrop(() => ({
         accept: 'PROPERTY',

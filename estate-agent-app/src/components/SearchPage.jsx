@@ -47,9 +47,11 @@ const SearchPage = () => {
 
     // Favourites Handlers
     const addFavourite = (id) => {
-        if (favourites.find(f => f.id === id)) return; // Prevent duplicates
-        const propToAdd = properties.find(p => p.id === id);
-        if (propToAdd) setFavourites([...favourites, propToAdd]);
+        setFavourites((prevFavourites) => {
+            if (prevFavourites.find(f => f.id === id)) return prevFavourites; // Prevent duplicates
+            const propToAdd = properties.find(p => p.id === id);
+            return propToAdd ? [...prevFavourites, propToAdd] : prevFavourites;
+        });
     };
 
     const removeFavourite = (id) => {
