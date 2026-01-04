@@ -11,6 +11,23 @@ const SearchPage = () => {
     const [filteredProps, setFilteredProps] = useState(propertiesData.properties);
     const [favourites, setFavourites] = useState([]);
 
+    // Load favourites from localStorage on mount
+    useEffect(() => {
+        const savedFavs = localStorage.getItem('favourites');
+        if (savedFavs) {
+            try {
+                setFavourites(JSON.parse(savedFavs));
+            } catch (e) {
+                console.error("Failed to parse favourites from localStorage", e);
+            }
+        }
+    }, []);
+
+    // Save favourites to localStorage whenever they change
+    useEffect(() => {
+        localStorage.setItem('favourites', JSON.stringify(favourites));
+    }, [favourites]);
+
     // Search State
     const [type, setType] = useState('Any');
     const [minPrice, setMinPrice] = useState('');
