@@ -16,7 +16,7 @@ const PropertyCard = ({ property, onAddFav, onRemoveFav  }) => {
 // 2. CHECK ON LOAD: Is this property already in storage?
     useEffect(() => {
         // Get the current list of favorites from the browser
-        const savedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        const savedFavorites = JSON.parse(localStorage.getItem('favourites')) || [];
 
         // Check if THIS property is in that list
         // Note: We use 'some' to see if any item matches the ID
@@ -27,12 +27,12 @@ const PropertyCard = ({ property, onAddFav, onRemoveFav  }) => {
     }, [property.id]); // Run this check whenever we load a new property
 
     const toggleFavorite = () => {
-        let savedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        let savedFavorites = JSON.parse(localStorage.getItem('favourites')) || [];
 
         if (isFavorite) {
             // === REMOVE LOGIC ===
             const newFavorites = savedFavorites.filter((fav) => fav.id !== property.id);
-            localStorage.setItem('favorites', JSON.stringify(newFavorites));
+            localStorage.setItem('favourites', JSON.stringify(newFavorites));
             setIsFavorite(false);
 
             // OPTIONAL: If you have an onRemoveFav prop, call it here
@@ -41,7 +41,7 @@ const PropertyCard = ({ property, onAddFav, onRemoveFav  }) => {
         } else {
             // === ADD LOGIC ===
             savedFavorites.push(property);
-            localStorage.setItem('favorites', JSON.stringify(savedFavorites));
+            localStorage.setItem('favourites', JSON.stringify(savedFavorites));
             setIsFavorite(true);
 
             // === NEW: Call onAddFav here ===
