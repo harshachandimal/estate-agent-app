@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import propertiesData from '../data/properties.json';
 import { filterProperties } from '../utils/filter.js';
 import FavouritesPanel from './FavouritesPanel.jsx';
