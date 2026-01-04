@@ -2,8 +2,8 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar'; // Import the new component
-import SearchPage from './components/SearchPage';
-import PropertyPage from './components/PropertyPage';
+import SearchPage from './pages/SearchPage.jsx';
+import PropertyPage from './pages/PropertyPage.jsx';
 import Footer from "./components/Footer.jsx";
 
 function App() {

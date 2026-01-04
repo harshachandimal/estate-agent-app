@@ -1,7 +1,7 @@
 import React from 'react';
 import PropertyCard from './PropertyCard.jsx';
 
-const ResultsGrid = ({ filteredProps, onAddFav , onRemoveFav}) => {
+const ResultsGrid = ({ filteredProps, onAddFav, onRemoveFav, favourites = [] }) => {
   return (
     <>
       <div className="mb-4">
@@ -10,7 +10,13 @@ const ResultsGrid = ({ filteredProps, onAddFav , onRemoveFav}) => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {filteredProps.map((prop) => (
-          <PropertyCard key={prop.id} property={prop} onAddFav={onAddFav} onRemoveFav={onRemoveFav} />
+          <PropertyCard
+            key={prop.id}
+            property={prop}
+            onAddFav={onAddFav}
+            onRemoveFav={onRemoveFav}
+            isFavorite={favourites.some(fav => fav.id === prop.id)}
+          />
         ))}
         {filteredProps.length === 0 && (
           <p className="col-span-2 text-center text-gray-500 mt-10">No properties match your criteria.</p>

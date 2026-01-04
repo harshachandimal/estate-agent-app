@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDrag } from 'react-dnd';
 
-const PropertyCard = ({ property, onAddFav, onRemoveFav  }) => {
+const PropertyCard = ({ property, onAddFav, onRemoveFav, isFavorite }) => {
     const [{ isDragging }, drag] = useDrag(() => ({
         type: 'PROPERTY',
         item: { id: property.id },
@@ -10,45 +10,12 @@ const PropertyCard = ({ property, onAddFav, onRemoveFav  }) => {
             isDragging: !!monitor.isDragging(),
         }),
     }));
-    // 1. Setup the state
-    const [isFavorite, setIsFavorite] = useState(false);
-
-// 2. CHECK ON LOAD: Is this property already in storage?
-    useEffect(() => {
-        // Get the current list of favorites from the browser
-        const savedFavorites = JSON.parse(localStorage.getItem('favourites')) || [];
-
-        // Check if THIS property is in that list
-        // Note: We use 'some' to see if any item matches the ID
-        const isListed = savedFavorites.some((fav) => fav.id === property.id);
-
-        // Set the button color based on what we found
-        setIsFavorite(isListed);
-    }, [property.id]); // Run this check whenever we load a new property
 
     const toggleFavorite = () => {
-        let savedFavorites = JSON.parse(localStorage.getItem('favourites')) || [];
-
         if (isFavorite) {
-            // === REMOVE LOGIC ===
-            const newFavorites = savedFavorites.filter((fav) => fav.id !== property.id);
-            localStorage.setItem('favourites', JSON.stringify(newFavorites));
-            setIsFavorite(false);
-
-            // OPTIONAL: If you have an onRemoveFav prop, call it here
-             if (onRemoveFav) onRemoveFav(property.id);
-
+            if (onRemoveFav) onRemoveFav(property.id);
         } else {
-            // === ADD LOGIC ===
-            savedFavorites.push(property);
-            localStorage.setItem('favourites', JSON.stringify(savedFavorites));
-            setIsFavorite(true);
-
-            // === NEW: Call onAddFav here ===
-            // This updates the parent component (e.g. Navbar counter) instantly
-            if (onAddFav) {
-                onAddFav(property.id);
-            }
+            if (onAddFav) onAddFav(property.id);
         }
     };
 

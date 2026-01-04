@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css'; // Default styles
 import { FaArrowLeft, FaBed, FaMapMarkerAlt, FaTag } from 'react-icons/fa';
 import propertiesData from '../data/properties.json';
+import PropertyGallery from '../components/PropertyGallery';
 
 const PropertyPage = () => {
     const { id } = useParams();
@@ -11,17 +12,11 @@ const PropertyPage = () => {
 
     if (!property) return <div className="p-10 text-center text-red-500">Property not found!</div>;
 
-    // Mock array for gallery since JSON only has 1 image
-    // In reality, your JSON should have an array of images: "images": ["url1", "url2"...]
-    // This generates 6 copies of the main image for the gallery requirement
-    const galleryImages = property.images || new Array(3).fill(property.picture);
-
     return (
         <div className="container mx-auto p-4 max-w-5xl">
             <Link to="/" className="inline-flex items-center text-blue-600 mb-6 hover:underline">
                 <FaArrowLeft className="mr-2"/> Back to Search
             </Link>
-
             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
 
                 {/* Header Section */}
@@ -34,26 +29,7 @@ const PropertyPage = () => {
                     </div>
                 </div>
 
-                {/* Gallery Section (5%) */}
-                <div className="p-6 bg-gray-50">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                        {/* Main Large Image */}
-                        <div className="md:col-span-3">
-                            <img src={`/estate-agent-app/${property.picture}`} alt="Main" className="w-full h-96 object-cover rounded-lg shadow-sm" />
-                        </div>
-                        {/* Thumbnails */}
-                        <div className="md:col-span-1 grid grid-cols-2 md:grid-cols-1 gap-2 h-96 overflow-y-auto">
-                            {galleryImages.map((img, index) => (
-                                <img
-                                    key={index}
-                                    src={img.startsWith('/estate') ? img : `/estate-agent-app/${img}`}
-                                    alt={`Thumbnail ${index}`}
-                                    className="w-full h-24 object-cover rounded cursor-pointer hover:opacity-75 border-2 border-transparent hover:border-blue-500 transition"
-                                />
-                            ))}
-                        </div>
-                    </div>
-                </div>
+                <PropertyGallery property={property} />
 
                 {/* Tabs Section (7%) */}
                 <div className="p-6">
@@ -102,7 +78,6 @@ const PropertyPage = () => {
                         </TabPanel>
                     </Tabs>
                 </div>
-
             </div>
         </div>
     );
