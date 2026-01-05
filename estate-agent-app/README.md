@@ -1,16 +1,27 @@
-# React + Vite
+# Estate Agent App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 🔗 Links
+- **Live Website:** [Click Here to View App]( https://harshachandimal.github.io/estate-agent-app/)
+- **Source Code:** [View on GitHub](https://github.com/harshachandimal/estate-agent-app.git)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📝 Project Description
+A responsive single-page application for searching and saving properties, built with React.js.
 
-## React Compiler
+## 🚀 Features
+* **Property Search:** Filter properties by type, price, and location.
+* **Drag & Drop:** Users can drag properties into a "Favorites" widget.
+* **Persistence:** Favorites are saved to Local Storage (data remains after refresh).
+* **Interactive Maps:** Embedded Google Maps for property locations.
+* **Tabbed Interface:** View details, floor plans, and maps easily.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## 🛠️ Tech Stack
+* **Frontend:** React.js, Tailwind CSS
+* **Libraries:** React Router DOM, React DnD (Drag and Drop), React Tabs, React Icons
+* **Build Tool:** Vite
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📦 How to Run
+1.  Clone the repository.
+2.  Run `npm install` to install dependencies.
+3.  Run `npm run dev` to start the local server.
