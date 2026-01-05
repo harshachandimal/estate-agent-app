@@ -52,8 +52,25 @@ const PropertyPage = () => {
                         </TabPanel>
 
                         <TabPanel>
-                            <div className="flex justify-center items-center h-64 bg-gray-100 rounded border-2 border-dashed border-gray-300">
-                                <span className="text-gray-500">[Floor Plan Image Placeholder]</span>
+                            <div className="flex justify-center items-center bg-gray-50 rounded border border-gray-200 p-4 min-h-[300px]">
+                                {property.floorPlan ? (
+                                    <div className="text-center">
+                                        <img
+                                            // Uses the path /estate-agent-app/ for GitHub Pages
+                                            src={`/estate-agent-app/${property.floorPlan}`}
+                                            alt={`Floor Plan for ${property.location}`}
+                                            className="max-h-[500px] w-full object-contain cursor-zoom-in hover:opacity-95 transition"
+                                            // Opens full image in new tab when clicked
+                                            onClick={() => window.open(`/estate-agent-app/${property.floorPlan}`, '_blank')}
+                                        />
+                                        <p className="text-gray-400 text-sm mt-2">Click to enlarge</p>
+                                    </div>
+                                ) : (
+                                    <div className="text-gray-500 italic flex flex-col items-center">
+                                        <span className="text-4xl mb-2">📄</span>
+                                        <p>No floor plan available for this property.</p>
+                                    </div>
+                                )}
                             </div>
                         </TabPanel>
 
