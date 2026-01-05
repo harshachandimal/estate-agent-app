@@ -10,7 +10,7 @@
 			"location":"Petts Wood Road, Petts Wood, Orpington BR5",
 			"picture":"images/prop1_main.jpg",
 			"url":"properties/prop1.html",
-            "floorPlan": "floorplan1.png",
+            "floorPlan": "images/floorplan1.png",
             "added": {
                 "month":"October",
                 "day":12,
@@ -33,7 +33,7 @@
 			"location":"Crofton Road Orpington BR6",
 			"picture":"images/prop2_main.jpg",
 			"url":"properties/prop2.html",
-            "floorPlan": "floorplan2.jpg",
+            "floorPlan": "images/floorplan2.jpg",
             "added": {
                 "month":"September",
                 "day":14,
@@ -58,7 +58,7 @@
             "location": "High Street, Bromley BR1",
             "picture": "images/prop3_main.jpg",
             "url":"properties/prop3.html",
-            "floorPlan": "floorplan3.jpg",
+            "floorPlan": "images/floorplan3.jpg",
             "added": { "month": "January", "day": 10, "year": 2023 },
           "images": [
             "images/prop3_main.jpg",
@@ -77,7 +77,7 @@
             "location": "Station Road, Orpington BR6",
             "picture": "images/prop4_main.jpg",
             "url":"properties/prop4.html",
-            "floorPlan": "floorplan4.webp",
+            "floorPlan": "images/floorplan4.webp",
             "added": { "month": "March", "day": 5, "year": 2023 },
           "images": [
             "images/prop4_main.jpg",
@@ -96,7 +96,7 @@
             "location": "Chislehurst Road, Chislehurst BR7",
             "picture": "images/prop5_main.jpg",
             "url":"properties/prop5.html",
-            "floorPlan": "floorplan5.png",
+            "floorPlan": "images/floorplan5.png",
             "added": { "month": "November", "day": 20, "year": 2022 },
           "images": [
             "images/prop5_main.jpg",
@@ -115,7 +115,7 @@
             "location": "London Road, Bromley BR1",
             "picture": "images/prop6_main.jpg",
             "url":"properties/prop6.html",
-            "floorPlan": "floorplan6.png",
+            "floorPlan": "images/floorplan6.png",
             "added": { "month": "April", "day": 15, "year": 2023 },
           "images": [
             "images/prop6_main.jpg",
@@ -134,7 +134,7 @@
             "location": "Main Road, Sidcup DA14",
             "picture": "images/prop7_main.jpg",
             "url":"properties/prop7.html",
-            "floorPlan": "floorplan7.png",
+            "floorPlan": "images/floorplan7.png",
             "added": { "month": "May", "day": 2, "year": 2023 },
           "images": [
             "images/prop7_main.jpg",
